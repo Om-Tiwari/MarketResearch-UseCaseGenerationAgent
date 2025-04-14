@@ -54,7 +54,7 @@ class Configuration:
     )
 
     max_loops: int = field(
-        default=6,
+        default=10,
         metadata={
             "description": "The maximum number of interaction loops allowed before the agent terminates."
         },

@@ -2,7 +2,7 @@ import gradio as gr
 import asyncio
 import os
 from main import run_full_workflow
-from dotenv import load_dotenv, set_key
+from dotenv import load_dotenv
 
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -39,20 +39,6 @@ def run_workflow(topic):
     """Wrapper to run the async workflow in a synchronous Gradio interface."""
     return asyncio.run(process_topic(topic))
 
-
-def save_env_variables(tavily_api_key, openai_api_key):
-    """Save environment variables to a .env file."""
-    set_key(ENV_FILE, "TAVILY_API_KEY", tavily_api_key)
-    set_key(ENV_FILE, "OPENAI_API_KEY", openai_api_key)
-    return (
-        "Environment variables saved successfully!",
-        gr.update(visible=False),
-        gr.update(visible=False),
-        gr.update(visible=False),
-    )
-
-
-
 with gr.Blocks() as app:
     gr.Markdown("# Market Research & Use Case Generation Agent")
     gr.Markdown(
@@ -75,28 +61,5 @@ with gr.Blocks() as app:
 
     submit_button.click(run_workflow, inputs=topic_input, outputs=output)
 
-    with gr.Row():
-        tavily_api_key = gr.Textbox(
-            label="TAVILY API Key", placeholder="Enter your TAVILY API Key key"
-        )
-        openai_api_key = gr.Textbox(
-            label="OPENAI API Key", placeholder="Enter your OPENAI API Key here"
-        )
-        save_button = gr.Button("Save Environment Variables")
-
-    save_output = gr.Markdown(value="")
-
-    save_button.click(
-        save_env_variables,
-        inputs=[tavily_api_key, openai_api_key],
-        outputs=[
-            save_output,
-            tavily_api_key,
-            openai_api_key,
-            save_button,
-        ],  # Update visibility of components
-    )
-
-
 if __name__ == "__main__":
-    app.launch(share=False, pwa=True, debug=True)
+    app.launch(share=False, pwa=True, debug=False)

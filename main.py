@@ -54,7 +54,7 @@ def store_data(
         file_name = file_name.replace(" ", "_").lower()
         file_path = f"results/{file_name}.md"
         with open(file_path, "w", encoding="utf-8") as f:
-            f.write("#Dataset Resources\n\n")
+            f.write("# Dataset Resources\n\n")
             for use_case_entry in data.get("use_case_datasets", []):
                 use_case = use_case_entry.get("use_case")
                 f.write(f"## 🔹 {use_case}\n\n")
