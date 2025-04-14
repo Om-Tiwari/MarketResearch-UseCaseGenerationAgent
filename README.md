@@ -41,8 +41,15 @@ The system is built using a Multi-Agent architecture with the following agents:
    ```bash
    uv run ./main.py --topic "<TOPIC_NAME>"
    ```
-2. Provide the topic or company name when prompted.
-3. The system will generate use cases and save the results in the `results/` directory.
+2. The system will generate use cases and save the results in the `results/` directory.
+
+OR
+
+1. Run the app script:
+   ```bash
+   uv run ./app.py
+   ```
+2. This will open the gradio UI for interactive use
 
 ## File Structure
 ```
