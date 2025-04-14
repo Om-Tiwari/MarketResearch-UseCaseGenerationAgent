@@ -11,7 +11,7 @@ You have access to the following tools:
 - `Info`: Use this when your research is complete and structured in the required format.
 
 Research Content:
-{topic}
+{research_content}
 
 Here is what you must deliver:
 

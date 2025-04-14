@@ -27,7 +27,7 @@ class Configuration:
         default=prompts.MAIN_PROMPT,
         metadata={
             "description": "The main prompt template to use for the agent's interactions. "
-            "Expects two f-string arguments: {info} and {topic}."
+            "Expects two f-string arguments: {info} and {research_content}."
         },
     )
     

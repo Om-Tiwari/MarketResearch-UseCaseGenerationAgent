@@ -39,9 +39,9 @@ async def call_agent_model(
         "parameters": configuration.extraction_schema,
     }
 
-    # Format the prompt defined in prompts.py with the extraction schema and topic
+    # Format the prompt defined in prompts.py with the extraction schema and research_content
     p = configuration.prompt.format(
-        info=json.dumps(configuration.extraction_schema, indent=2), topic=state.topic
+        info=json.dumps(configuration.extraction_schema, indent=2), research_content=state.research_content
     )
 
     # Create the messages list with the formatted prompt and the previous messages
@@ -113,7 +113,7 @@ async def reflect(
     configuration = Configuration.from_runnable_config(config)
 
     p = prompts.MAIN_PROMPT.format(
-        info=json.dumps(configuration.extraction_schema, indent=2), topic=state.topic
+        info=json.dumps(configuration.extraction_schema, indent=2), research_content=state.research_content
     )
     last_message = state.messages[-1]
     if not isinstance(last_message, AIMessage):

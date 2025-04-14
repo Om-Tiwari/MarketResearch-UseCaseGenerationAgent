@@ -28,18 +28,18 @@ The system is built using a Multi-Agent architecture with the following agents:
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/Om-Tiwari/MarketResearch-UseCaseGenerationAgent.git
    cd UseCaseGenAgent
    ```
 2. Install dependencies:
    ```bash
-   uv sync //make sure you have uv installed
+   uv sync // make sure you have uv installed already
    ```
 
 ## Usage
 1. Run the main script:
    ```bash
-   uv run ./main.py
+   uv run ./main.py --topic "<TOPIC_NAME>"
    ```
 2. Provide the topic or company name when prompted.
 3. The system will generate use cases and save the results in the `results/` directory.

@@ -7,9 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "aiohttp>=3.11.16",
     "langchain>=0.3.23",
-    "langchain-anthropic>=0.3.10",
     "langchain-community>=0.3.21",
     "langchain-openai>=0.3.12",
     "langgraph>=0.3.29",
-    "pytest>=8.3.5",
 ]

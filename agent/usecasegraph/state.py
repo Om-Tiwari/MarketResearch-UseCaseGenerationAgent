@@ -16,11 +16,11 @@ from langgraph.graph import add_messages
 class InputState:
     """Input state defines the interface between the graph and the user (external API)."""
 
-    topic: str
-    "The topic for which the agent is tasked to gather information."
+    research_content: str
+    "The research_content for which the agent is tasked to gather information."
 
     info: Optional[dict[str, Any]] = field(default=None)
-    "The info state tracks the current extracted data for the given topic, conforming to the provided schema. This is primarily populated by the agent."
+    "The info state tracks the current extracted data for the given research_content, conforming to the provided schema. This is primarily populated by the agent."
 
 
 @dataclass(kw_only=True)
